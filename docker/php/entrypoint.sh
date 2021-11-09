@@ -17,6 +17,7 @@ composer install -n --prefer-source --classmap-authoritative
 chown -R www-data:www-data /var/www/var/cache
 
 bin/console doctrine:database:create -n --if-not-exists
+bin/console d:m:m -n --allow-no-migration
 
 if [ "${APP_ENV}"  =  "test" ]; then
   exec bin/phpunit
